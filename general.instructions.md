@@ -12,7 +12,8 @@ across all projects and technologies.
 
 ### Simplicity and Conciseness
 
-- Prefer shorter alternatives that achieve the same result
+- Prefer shorter alternatives that maintain readability and achieve the same
+  functional result
 - Remove unnecessary code, comments, and complexity
 - Less is more - every line should serve a purpose
 
@@ -21,6 +22,7 @@ across all projects and technologies.
 - Rely on compilers, linters, and validators for correctness
 - Use automated formatting tools instead of manual formatting
 - Let tools catch errors rather than manual review
+- When tools conflict, prioritize in this order: compiler, linter, formatter
 
 ### YAGNI (You Aren't Gonna Need It)
 
@@ -32,8 +34,10 @@ across all projects and technologies.
 
 - Refactor duplicated code into reusable functions or modules
 - Extract common patterns into shared utilities
-- Prefer composition over inheritance
-- Prefer inheritance over copying code
+- When sharing functionality, use this priority order:
+  1. Composition (combining smaller components)
+  2. Inheritance (extending existing classes)
+  3. Copying code (only as last resort)
 
 ## Code Examples
 
@@ -75,7 +79,8 @@ def calculate_order_total(items):
 
 - Wrap all lines at 80 characters maximum
 - This includes comments, commit messages, and documentation
-- Exception: URLs or code that cannot be reasonably wrapped
+- Exceptions: URLs, long string literals, or code where wrapping would break
+  functionality
 
 ### Writing Style
 
@@ -130,3 +135,18 @@ const CACHE_TTL = 300;
 // Set cache time to 300
 const CACHE_TTL = 300; // this is the cache time
 ```
+
+## Temporary Files
+
+- All temporary files should go in a `temp` directory
+- Ensure that temporary files are excluded by the `.gitignore`
+- Verify temporary files are excluded using either:
+  - `git ls-files -i -o --exclude-standard` (shows ignored untracked files)
+  - `git status --ignored -uall --porcelain` (shows all ignored files)
+
+## Git Policies
+
+- You are NEVER allowed to add files automatically
+- You are NEVER allowed to commit automatically
+- If the user tells you to commit you may add and commit
+  after the user approves your commit message
