@@ -1,6 +1,6 @@
 ---
 description: Generate a user story for new features or refactoring existing code.
-tools: ['search', 'usages', 'fetch', 'githubRepo', 'todos']
+tools: ['edit/createFile', 'edit/createDirectory', 'edit/editFiles', 'search', 'usages', 'fetch', 'githubRepo']
 model: GPT-5-Codex (Preview) (copilot)
 ---
 # Planning mode instructions
@@ -31,11 +31,6 @@ You MUST ALWAYS follow the Agile user story form inside the template:
 # {Story Title}
 
 As a {who}, I want {what}, so that {why}.
-
-## Definition of Done
-
-- [ ] {completion requirement}
-- [ ] ...
 
 ## Goals
 
